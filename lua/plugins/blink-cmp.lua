@@ -50,6 +50,20 @@ return {
       ["<C-y>"] = { "select_and_accept" },
     },
   },
+  ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
+  config = function(_, opts)
+    local enabled = opts.sources.default
+    for _, source in ipairs(opts.sources.compat or {}) do
+      opts.sources.providers[source] = vim.tbl_deep_extend(
+        "force",
+        { name = source, module = "blink.compat.source" },
+        opts.sources.providers[source] or {}
+      )
+      if type(enabled) == "table" and not vim.tbl_contains(enabled, source) then
+        table.insert(enabled, source)
+      end
+    end
+
     opts.sources.compat = nil
     require("blink.cmp").setup(opts)
   end,
