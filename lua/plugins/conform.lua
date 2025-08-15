@@ -9,8 +9,8 @@ return {
         html = { "prettier" },
 
         vue = { "eslint-lsp" },
-        javascriptreact = { "eslint-lsp" },
-        typescriptreact = { "eslint-lsp" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
 
         css = { "css-lsp" },
         scss = { "css-lsp" },

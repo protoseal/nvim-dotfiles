@@ -38,7 +38,7 @@ return {
 
     sources = {
       compat = {},
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path" },
     },
 
     cmdline = {
